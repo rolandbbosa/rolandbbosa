@@ -1,31 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Graphics Designer | 3D Artist | Python developer">
-    <meta name="keywords" content="rolandbbosa, bbosa roland, roland bbosa, roland, bbosa">
-    <meta name="author" content="Roland Bbosa">
-    <title>ROLAND BBOSA</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        body {
-            height: 100vh;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roland Bbosa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    ::selection {
+      background: #a855f7;
+      color: white;
+    }
 
-        body {
-            overflow: hidden; /* Hide scrollbars */
-        }
-    </style>
-    <script>
-        // JavaScript redirect to the specified URL
-        window.location.replace("https://bbosaroland.lovestoblog.com/");
-    </script>
+    img {
+        object-fit:contain;
+    }
+
+  </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 text-white font-sans transition-colors duration-500">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-3xl shadow-2xl w-full max-w-4xl transition-all duration-500 hover:shadow-purple-700/30">
+      <!-- Profile Section -->
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <!-- Image -->
+        <img src="rolandbbosa.png" alt="Your Name" class="w-40  rounded-full border-4 border-purple-500 shadow-xl transition-transform duration-300 hover:scale-105" />
+
+        <!-- Info -->
+        <div class="flex-1">
+          <h1 class="text-4xl font-extrabold text-purple-300 hover:text-purple-400 transition duration-300">Bbosa Roland</h1>
+          <p class="mt-1 text-gray-300 text-lg italic">Web Developer | Designer | Pythonista</p>
+
+          <!-- About -->
+          <div class="mt-5">
+            <h2 class="text-xl font-semibold text-white mb-2">About Me</h2>
+            <p class="text-gray-400 leading-relaxed">
+              I'm a Ugandan male Genius. Memer and so much more. The bio continues but am lazy. Just follow me.
+            </p>
+          </div>
+
+          <!-- Social Links -->
+          <div class="mt-6 flex flex-wrap gap-4">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/rolandbbosa" target="_blank" class="transition-transform transform hover:scale-110">
+              <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8.999h5V24H0V9zm7.5 0H12v2.5h.07c.61-1.16 2.1-2.37 4.33-2.37C20.66 10.999 24 13.67 24 18.5V24h-5v-5.5c0-1.39-.03-3.18-1.94-3.18-1.94 0-2.24 1.52-2.24 3.08V24h-5V9z"/>
+              </svg>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/rolandbbosa" target="_blank" class="transition-transform transform hover:scale-110">
+              <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .5C5.37.5 0 5.87 0 12.44c0 5.26 3.44 9.72 8.21 11.3.6.12.82-.26.82-.58v-2.23c-3.34.73-4.04-1.65-4.04-1.65-.54-1.39-1.32-1.76-1.32-1.76-1.08-.73.08-.71.08-.71 1.2.09 1.83 1.26 1.83 1.26 1.06 1.83 2.78 1.3 3.46.99.1-.77.42-1.3.76-1.6-2.66-.31-5.47-1.33-5.47-5.93 0-1.31.46-2.39 1.23-3.23-.12-.31-.54-1.57.12-3.28 0 0 1-.33 3.3 1.23a11.26 11.26 0 013-.4c1.02.01 2.05.14 3 .4 2.3-1.56 3.29-1.23 3.29-1.23.66 1.71.24 2.97.12 3.28.77.84 1.23 1.92 1.23 3.23 0 4.61-2.82 5.61-5.5 5.91.43.37.82 1.1.82 2.23v3.3c0 .32.22.71.83.58A12.01 12.01 0 0024 12.44C24 5.87 18.63.5 12 .5z"/>
+              </svg>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:bbosaroland@gmail.com" class="transition-transform transform hover:scale-110">
+              <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 13.5L0 6V4l12 7.5L24 4v2l-12 7.5zM0 8.25V20h24V8.25l-12 7.5-12-7.5z"/>
+              </svg>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://x.com/bbpsaroland" target="_blank" class="transition-transform transform hover:scale-110">
+              <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.162 2H1.838C.82 2 0 2.82 0 3.838v16.324C0 21.18.82 22 1.838 22h20.324C23.18 22 24 21.18 24 20.162V3.838C24 2.82 23.18 2 22.162 2zM16.92 16.577l-2.122-.003-3.288-4.274-3.14 4.27-2.21-.003 4.184-5.675-4.066-5.582 2.126.003 3.16 4.167 3.063-4.162 2.197.003-4.014 5.519L16.92 16.577z"/>
+              </svg>
+            </a>
+
+            <!-- Pinterest -->
+            <a href="https://pinterest.com/hisroland" target="_blank" class="transition-transform transform hover:scale-110">
+              <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.04 0C5.397 0 0 5.397 0 12.04c0 4.78 2.865 8.874 6.974 10.718-.095-.91-.181-2.31.037-3.31.197-.85 1.268-5.413 1.268-5.413s-.323-.65-.323-1.615c0-1.515.88-2.646 1.977-2.646.93 0 1.378.698 1.378 1.535 0 .935-.594 2.333-.902 3.63-.257 1.095.545 1.988 1.615 1.988 1.938 0 3.423-2.04 3.423-4.98 0-2.6-1.87-4.418-4.537-4.418-3.093 0-4.91 2.318-4.91 4.717 0 .935.36 1.938.81 2.484.09.108.102.202.076.31-.082.345-.265 1.1-.3 1.252-.047.197-.16.24-.374.145-1.39-.65-2.258-2.682-2.258-4.314 0-3.513 2.552-6.743 7.36-6.743 3.865 0 6.867 2.758 6.867 6.44 0 3.842-2.425 6.936-5.785 6.936-1.13 0-2.19-.586-2.55-1.276l-.692 2.64c-.252.98-.936 2.206-1.39 2.956.986.305 2.033.472 3.123.472 6.644 0 12.04-5.396 12.04-12.04C24.08 5.397 18.684 0 12.04 0z"/>
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/his.roland" target="_blank" class="transition-transform transform hover:scale-110">
+              <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0-2A7.5 7.5 0 0 0 0 7.5v9A7.5 7.5 0 0 0 7.5 24h9A7.5 7.5 0 0 0 24 16.5v-9A7.5 7.5 0 0 0 16.5 0h-9zm9.75 5.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+              </svg>
+            </a>
+
+            <!-- Snapchat -->
+            <a href="https://www.snapchat.com/add/hisroland" target="_blank" class="transition-transform transform hover:scale-110">
+                <svg class="w-6 h-6 text-purple-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 4.935 3.002 9.145 7.25 11.033-.106-.446-.19-.946-.24-1.52-.038-.42-.067-.86-.086-1.317-.02-.457.097-.86.358-1.178.374-.45.9-.61 1.476-.444.544.157 1.144.276 1.796.354a11.55 11.55 0 0 0 2.756 0c.652-.078 1.252-.197 1.796-.354.577-.166 1.102-.006 1.476.444.26.318.377.72.358 1.178-.02.457-.048.897-.086 1.317a15.41 15.41 0 0 1-.24 1.52C21.001 21.145 24 16.935 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

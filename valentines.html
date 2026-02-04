@@ -1,1 +1,200 @@
-<h1>coming soon</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        :root {
+            --pink: #ff4d6d;
+            --dark-pink: #c9184a;
+            --soft-pink: #ffb3c1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff0f3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            z-index: 10;
+        }
+
+        h1 {
+            color: var(--dark-pink);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px #ffb3c1;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn {
+            background-color: var(--pink);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background-color: var(--dark-pink);
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #ced4da;
+            color: #495057;
+            position: relative;
+            z-index: 999;
+        }
+
+        /* Surprise Overlay */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .surprise-content {
+            font-size: 3rem;
+            animation: bounce 0.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            pointer-events: none;
+            animation: float Up 3s linear forwards;
+        }
+
+        @keyframes floatUp {
+            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="main-content">
+            <div style="font-size: 80px;">💝</div>
+            <h1>Will you be my Valentine?</h1>
+            <div class="buttons">
+                <button id="yesBtn">YES!</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <div id="surprise-text" style="color: var(--dark-pink); font-weight: bold; margin-bottom: 20px;"></div>
+        <div id="surprise-emoji" class="surprise-content"></div>
+        <button onclick="closeSurprise()" style="margin-top: 30px; background: var(--pink); color: white;">Yay!</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const overlay = document.getElementById('overlay');
+        const surpriseText = document.getElementById('surprise-text');
+        const surpriseEmoji = document.getElementById('surprise-emoji');
+
+        // --- THE UNTOUCHABLE "NO" BUTTON LOGIC ---
+
+        const moveButton = (e) => {
+            const padding = 50;
+            // Generate random coordinates within the viewport
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        };
+
+        // Desktop: Moves when cursor gets close
+        noBtn.addEventListener('mouseover', moveButton);
+
+        // Mobile: Moves instantly when touched
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevents clicking
+            moveButton();
+        });
+
+        // --- THE "YES" SURPRISE LOGIC ---
+
+        const surprises = [
+            { text: "I KNEW IT! 🍕 PIZZA PARTY INCOMING!", emoji: "🍕🔥🌈" },
+            { text: "YOU JUST WON A LIFETIME OF CUDDLES!", emoji: "🧸✨💖" },
+            { text: "SYSTEM ERROR: TOO MUCH LOVE DETECTED!", emoji: "🤖💘💥" },
+            { text: "PREPARING THE WEDDING FOR TOMORROW!", emoji: "👰‍♂️💍🤵" },
+            { text: "YOU'RE STUCK WITH ME FOREVER NOW!", emoji: "🔒🥰🗝️" },
+            { text: "BRB, BUYING ALL THE FLOWERS IN THE WORLD!", emoji: "🌸🌻🌹" }
+        ];
+
+        yesBtn.addEventListener('click', () => {
+            const randomPick = surprises[Math.floor(Math.random() * surprises.length)];
+            surpriseText.innerText = randomPick.text;
+            surpriseEmoji.innerText = randomPick.emoji;
+            overlay.style.display = 'flex';
+            
+            // Create some background chaos
+            for(let i=0; i<30; i++) {
+                createEmoji();
+            }
+        });
+
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.className = 'floating-emoji';
+            emoji.innerText = ['❤️', '💖', '✨', '🎈', '🍭'][Math.floor(Math.random()*5)];
+            emoji.style.left = Math.random() * 100 + 'vw';
+            emoji.style.top = '100vh';
+            emoji.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 4000);
+        }
+
+        function closeSurprise() {
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

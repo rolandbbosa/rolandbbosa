@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
+    <title>Be My Valentine? ✨</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pangolin&display=swap');
+
         :root {
-            --pink: #ff4d6d;
-            --dark-pink: #c9184a;
-            --soft-pink: #ffb3c1;
+            --hot-pink: #ff85a1;
+            --soft-pink: #fbb1bd;
+            --bg-color: #ffe5ec;
         }
 
         body {
@@ -16,185 +18,222 @@
             padding: 0;
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #fff0f3;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            font-family: 'Pangolin', cursive;
             overflow: hidden;
-            text-align: center;
+            touch-action: none; /* Prevents scrolling while chasing the button */
         }
 
-        .container {
-            padding: 20px;
-            z-index: 10;
+        /* Floating background hearts */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 133, 161, 0.2);
+            user-select: none;
+            z-index: -1;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+            text-align: center;
+            max-width: 90%;
+            border: 5px solid white;
+            outline: 3px solid var(--soft-pink);
         }
 
         h1 {
-            color: var(--dark-pink);
+            font-family: 'Fredoka One', cursive;
+            color: #c9184a;
             font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px #ffb3c1;
+            margin: 1rem 0;
         }
 
-        .buttons {
+        .gif-container img {
+            width: 150px;
+            border-radius: 20px;
+        }
+
+        .btn-group {
+            margin-top: 2rem;
             display: flex;
             gap: 20px;
             justify-content: center;
             align-items: center;
-            height: 100px;
+            min-height: 60px;
         }
 
         button {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            font-family: 'Fredoka One', cursive;
             border: none;
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
         }
 
         #yesBtn {
-            background-color: var(--pink);
+            background-color: var(--hot-pink);
             color: white;
+            box-shadow: 0 5px 0 #ff4d6d;
         }
 
-        #yesBtn:hover {
-            background-color: var(--dark-pink);
-            transform: scale(1.1);
+        #yesBtn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #ff4d6d;
         }
 
         #noBtn {
-            background-color: #ced4da;
-            color: #495057;
+            background-color: #adb5bd;
+            color: white;
             position: relative;
-            z-index: 999;
         }
 
-        /* Surprise Overlay */
-        #overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.9);
+        /* Surprise Modal */
+        #modal {
             display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            padding: 20px;
+            text-align: center;
         }
 
-        .surprise-content {
-            font-size: 3rem;
-            animation: bounce 0.5s infinite alternate;
+        .meme-img {
+            max-width: 300px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 4px solid var(--hot-pink);
         }
 
-        @keyframes bounce {
-            from { transform: scale(1); }
-            to { transform: scale(1.2); }
-        }
-
-        .floating-emoji {
-            position: absolute;
-            font-size: 2rem;
-            pointer-events: none;
-            animation: float Up 3s linear forwards;
-        }
-
-        @keyframes floatUp {
-            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        .surprise-text {
+            font-size: 1.8rem;
+            color: #c9184a;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div id="main-content">
-            <div style="font-size: 80px;">💝</div>
-            <h1>Will you be my Valentine?</h1>
-            <div class="buttons">
-                <button id="yesBtn">YES!</button>
-                <button id="noBtn">No</button>
-            </div>
+    <div class="card">
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/9f7eR9fT7u97C/giphy.gif" alt="Cute Bear">
+        </div>
+        <h1>Will you be my Valentine?</h1>
+        <p>Choose wisely... (or try to) 😉</p>
+        <div class="btn-group">
+            <button id="yesBtn">YES!</button>
+            <button id="noBtn">No</button>
         </div>
     </div>
 
-    <div id="overlay">
-        <div id="surprise-text" style="color: var(--dark-pink); font-weight: bold; margin-bottom: 20px;"></div>
-        <div id="surprise-emoji" class="surprise-content"></div>
-        <button onclick="closeSurprise()" style="margin-top: 30px; background: var(--pink); color: white;">Yay!</button>
+    <div id="modal">
+        <div class="surprise-text" id="msg"></div>
+        <div id="meme-container"></div>
+        <button id="closeBtn" style="background: var(--hot-pink); color: white;">Close & Do it again!</button>
     </div>
 
     <script>
+        // 1. Create floating background hearts
+        function createBgHearts() {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'bg-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                heart.style.animationDelay = (Math.random() * 10) + 's';
+                document.body.appendChild(heart);
+            }
+        }
+        createBgHearts();
+
+        // 2. The Elusive No Button
         const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const overlay = document.getElementById('overlay');
-        const surpriseText = document.getElementById('surprise-text');
-        const surpriseEmoji = document.getElementById('surprise-emoji');
-
-        // --- THE UNTOUCHABLE "NO" BUTTON LOGIC ---
-
-        const moveButton = (e) => {
-            const padding = 50;
-            // Generate random coordinates within the viewport
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-            
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
-
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
+        
+        const flee = () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
         };
 
-        // Desktop: Moves when cursor gets close
-        noBtn.addEventListener('mouseover', moveButton);
-
-        // Mobile: Moves instantly when touched
+        noBtn.addEventListener('mouseover', flee);
         noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // Prevents clicking
-            moveButton();
+            e.preventDefault();
+            flee();
         });
 
-        // --- THE "YES" SURPRISE LOGIC ---
+        // 3. The 10+ Random Surprises
+        const yesBtn = document.getElementById('yesBtn');
+        const modal = document.getElementById('modal');
+        const msg = document.getElementById('msg');
+        const memeContainer = document.getElementById('meme-container');
+        const closeBtn = document.getElementById('closeBtn');
 
         const surprises = [
-            { text: "I KNEW IT! 🍕 PIZZA PARTY INCOMING!", emoji: "🍕🔥🌈" },
-            { text: "YOU JUST WON A LIFETIME OF CUDDLES!", emoji: "🧸✨💖" },
-            { text: "SYSTEM ERROR: TOO MUCH LOVE DETECTED!", emoji: "🤖💘💥" },
-            { text: "PREPARING THE WEDDING FOR TOMORROW!", emoji: "👰‍♂️💍🤵" },
-            { text: "YOU'RE STUCK WITH ME FOREVER NOW!", emoji: "🔒🥰🗝️" },
-            { text: "BRB, BUYING ALL THE FLOWERS IN THE WORLD!", emoji: "🌸🌻🌹" }
+            { t: "LETS GOOOOO! 🚀", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/artj92KjJCmD6/giphy.gif" },
+            { t: "I've already told your parents.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/H54feNXf6Y4nK/giphy.gif" },
+            { t: "You have made the best decision of your life.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/14urMYvF3B507u/giphy.gif" },
+            { t: "HACKER! You used the 'Yes' button! 😍", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/5GoVLqeAOo6PK/giphy.gif" },
+            { t: "Processing love... 100% Complete.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiCiZC/giphy.gif" },
+            { t: "Wait, let me go buy a ring real quick!", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/9JyRQpXo47n/giphy.gif" },
+            { t: "Task Failed Successfully: You fell for me!", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/S5n7WKHge5BZqHiS5j/giphy.gif" },
+            { t: "You + Me = End Game.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/G96zgIcQn1L2xpmMlr/giphy.gif" },
+            { t: "I'm telling everyone on TikTok.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/lTQF0ODLLJHzaOBCFy/giphy.gif" },
+            { t: "Congratulations, you win ME!", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/j5uEVYERR0ncYlJpfm/giphy.gif" },
+            { t: "Preparing for our date like...", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/13HBDT4QSTpveU/giphy.gif" },
+            { t: "POV: You just said yes to the coolest person ever.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/IzXmRTmOlb2vceXMf1/giphy.gif" }
         ];
 
         yesBtn.addEventListener('click', () => {
-            const randomPick = surprises[Math.floor(Math.random() * surprises.length)];
-            surpriseText.innerText = randomPick.text;
-            surpriseEmoji.innerText = randomPick.emoji;
-            overlay.style.display = 'flex';
+            const random = surprises[Math.floor(Math.random() * surprises.length)];
+            msg.innerText = random.t;
+            memeContainer.innerHTML = `<img src="${random.m}" class="meme-img">`;
+            modal.style.display = 'flex';
             
-            // Create some background chaos
-            for(let i=0; i<30; i++) {
-                createEmoji();
+            // Spawn some confetti hearts
+            for(let i=0; i<20; i++) {
+                setTimeout(createConfetti, i * 50);
             }
         });
 
-        function createEmoji() {
-            const emoji = document.createElement('div');
-            emoji.className = 'floating-emoji';
-            emoji.innerText = ['❤️', '💖', '✨', '🎈', '🍭'][Math.floor(Math.random()*5)];
-            emoji.style.left = Math.random() * 100 + 'vw';
-            emoji.style.top = '100vh';
-            emoji.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            document.body.appendChild(emoji);
-            setTimeout(() => emoji.remove(), 4000);
+        function createConfetti() {
+            const c = document.createElement('div');
+            c.innerText = '💖';
+            c.style.position = 'fixed';
+            c.style.left = Math.random() * 100 + 'vw';
+            c.style.top = '100vh';
+            c.style.fontSize = '2rem';
+            c.style.zIndex = '1001';
+            c.style.transition = 'transform 2s linear, opacity 2s';
+            document.body.appendChild(c);
+            
+            setTimeout(() => {
+                c.style.transform = `translateY(-120vh) rotate(${Math.random() * 360}deg)`;
+                c.style.opacity = '0';
+            }, 10);
+            setTimeout(() => c.remove(), 2000);
         }
 
-        function closeSurprise() {
-            overlay.style.display = 'none';
-        }
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
     </script>
 </body>
 </html>

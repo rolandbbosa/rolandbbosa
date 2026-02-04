@@ -131,7 +131,7 @@
 
     <div class="card">
         <div class="gif-container">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/9f7eR9fT7u97C/giphy.gif" alt="Cute Bear">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjU1NjFnYTNteGM0OTM3M2hheWI3bDA1Ynp2bmJ6enlwNjg4d3U4aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jVc9j9QXBUKkXi0nVn/giphy.gif" alt="Love Frog">
         </div>
         <h1>Will you be my Valentine?</h1>
         <p>Choose wisely... (or try to) 😉</p>
@@ -187,18 +187,18 @@
         const closeBtn = document.getElementById('closeBtn');
 
         const surprises = [
-            { t: "LETS GOOOOO! 🚀", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/artj92KjJCmD6/giphy.gif" },
-            { t: "I've already told your parents.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/H54feNXf6Y4nK/giphy.gif" },
-            { t: "You have made the best decision of your life.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/14urMYvF3B507u/giphy.gif" },
-            { t: "HACKER! You used the 'Yes' button! 😍", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/5GoVLqeAOo6PK/giphy.gif" },
-            { t: "Processing love... 100% Complete.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiCiZC/giphy.gif" },
-            { t: "Wait, let me go buy a ring real quick!", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/9JyRQpXo47n/giphy.gif" },
-            { t: "Task Failed Successfully: You fell for me!", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/S5n7WKHge5BZqHiS5j/giphy.gif" },
-            { t: "You + Me = End Game.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/G96zgIcQn1L2xpmMlr/giphy.gif" },
-            { t: "I'm telling everyone on TikTok.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/lTQF0ODLLJHzaOBCFy/giphy.gif" },
-            { t: "Congratulations, you win ME!", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/j5uEVYERR0ncYlJpfm/giphy.gif" },
-            { t: "Preparing for our date like...", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/13HBDT4QSTpveU/giphy.gif" },
-            { t: "POV: You just said yes to the coolest person ever.", m: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaWp4Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5Z3p5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/IzXmRTmOlb2vceXMf1/giphy.gif" }
+            { t: "LETS GOOOOO! 🚀", m: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExajN5NjJpMXo1bHoxYmtrN3p1bWhzYTh2cnBqdmJmYTZsMmd2NG4weiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XCm6aoloWyUkwUuqkf/giphy.gif" },
+            { t: "I've already told your parents.", m: "" },
+            { t: "You have made the best decision of your life.", m: "" },
+            { t: "HACKER! You used the 'Yes' button! 😍", m: "" },
+            { t: "Processing love... 100% Complete.", m: "" },
+            { t: "Wait, let me go buy a ring real quick!", m: "" },
+            { t: "Task Failed Successfully: You fell for me!", m: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG55N29yNXBtc3drd25qZ2tvM2xiaWtmdGdjNjFkbnIwZHpibzR3ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/D9j761FH8SYJLyW9WO/giphy.gif" },
+            { t: "You + Me = End Game.", m: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTNnY25sNzZ2NTJrcGlmaDdmbjJkeHV1NW10d2xpaDd5Njl2a3lnNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNPeJFq6YNEvLZdcqX/giphy.gif" },
+            { t: "I'm telling everyone on TikTok.", m: "" },
+            { t: "Congratulations, you win ME!", m: "" },
+            { t: "Preparing for our date like...", m: "" },
+            { t: "POV: You just said yes to the coolest person ever.", m: "" }
         ];
 
         yesBtn.addEventListener('click', () => {
